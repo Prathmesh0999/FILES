@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyBox: Elite Coaching Academy</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Configure custom colors and font for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#003366', // Deep Blue
+                        'secondary': '#FFC300', // Gold/Yellow
+                        'accent': '#E76F51',
+                        'light-bg': '#f5f5f5',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-sans text-gray-800 antialiased">
+
+    <!-- HEADER: Main navigation and logo -->
+    <header id="main-header" class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-24">
+            <!-- Logo -->
+            <a href="#hero" class="flex-shrink-0" aria-label="Go to StudyBox homepage">
+                <!-- Using placeholder for image since assets aren't available -->
+                <div class="h-16 w-16 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold">
+                    SB
+                </div>
+            </a>
+
+            <!-- Mobile Menu Toggle Button (Visible on mobile, hidden on larger screens) -->
+            <button class="lg:hidden text-primary text-3xl p-2 rounded-lg hover:bg-light-bg transition-colors"
+                aria-label="Toggle navigation" id="mobile-menu-toggle">
+                <!-- Icon will swap between fa-bars and fa-times via JavaScript -->
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
+
+            <!-- Navigation Container (CRITICAL) -->
+            <nav id="main-nav" class="hidden lg:flex flex-grow justify-end items-center">
+                <!-- Menu List (CRITICAL) -->
+                <ul id="main-menu" role="menu"
+                    class="lg:flex lg:space-x-8 items-center text-lg space-y-4 lg:space-y-0">
+                    
+                    <li role="menuitem"><a href="#about" class="text-primary hover:text-accent font-medium transition duration-300">About Us</a></li>
+                    <li role="menuitem"><a href="#programs" class="text-primary hover:text-accent font-medium transition duration-300">Courses</a></li>
+                    <li role="menuitem"><a href="#features" class="text-primary hover:text-accent font-medium transition duration-300">Methodology</a></li>
+                    
+                    <!-- WhatsApp Icon (VISIBLE) -->
+                    <li class="whatsapp-icon" role="menuitem">
+                        <a href="https://wa.me/+919374336747?text=Hello,%20I%20am%20interested%20in%20StudyBox%20coaching%20classes."
+                            target="_blank" rel="noopener noreferrer" aria-label="Chat with StudyBox on WhatsApp"
+                            class="text-green-500 hover:text-green-700 text-3xl ml-4 p-2 transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </li>
+                    <!-- Instagram Icon (VISIBLE) -->
+                    <li class="instagram-icon" role="menuitem">
+                        <a href="https://www.instagram.com/study_box17/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Visit StudyBox on Instagram"
+                            class="text-pink-500 hover:text-pink-700 text-3xl p-2 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu Dropdown (Initially Hidden) -->
+        <div id="mobile-menu-dropdown" class="lg:hidden hidden absolute w-full bg-primary shadow-xl z-40">
+             <ul id="mobile-menu-list" role="menu" class="flex flex-col p-4 text-center">
+                <!-- Mobile Menu Links -->
+                <li role="menuitem" class="border-b border-gray-700"><a href="#about" class="block py-3 text-white hover:bg-accent font-medium transition duration-300">About Us</a></li>
+                <li role="menuitem" class="border-b border-gray-700"><a href="#programs" class="block py-3 text-white hover:bg-accent font-medium transition duration-300">Courses</a></li>
+                <li role="menuitem" class="border-b border-gray-700"><a href="#features" class="block py-3 text-white hover:bg-accent font-medium transition duration-300">Methodology</a></li>
+                
+                <!-- Social Icons in Mobile Menu (CRITICAL FIX) -->
+                <li class="flex justify-center space-x-8 pt-6 pb-2">
+                    <a href="https://wa.me/+919374336747" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"
+                        class="text-white hover:text-green-400 text-3xl transition duration-300">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/study_box17/" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram"
+                        class="text-white hover:text-pink-400 text-3xl transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative bg-primary text-white py-20 sm:py-32 overflow-hidden shadow-2xl">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <p class="tagline text-secondary text-lg sm:text-xl font-semibold mb-3">The Foundation of Future Success.</p>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                    StudyBox: Elite Coaching for Academic & Professional Milestones
+                </h1>
+                <p class="sub-tagline text-lg sm:text-xl max-w-3xl mx-auto mb-10 opacity-90">
+                    Achieve your potential in **CA, School Academics, and Competitive Exams** with personalized, expert mentorship.
+                </p>
+                <a href="#contact"
+                    class="inline-block px-8 py-3 text-lg font-bold rounded-full bg-secondary text-primary shadow-lg hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-105">
+                    Book a Free Consultation Today!
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-primary mb-4">Why Partner with StudyBox?</h2>
+                <h3 class="text-xl text-center text-gray-600 mb-12">Your Trusted Path to Focused and Consistent Results.</h3>
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <!-- Placeholder for small logo icon -->
+                            <div class="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-white text-sm font-bold">SB</div>
+                            <p class="text-lg leading-relaxed">StudyBox is a highly dedicated learning institution committed to your success. Founded on the principle of **personalized, result-oriented education**, we provide high-quality teaching, streamlined study materials, and a disciplined, supportive environment. We turn academic challenges into achievable goals.</p>
+                        </div>
+                        <p class="text-lg leading-relaxed">Our commitment is not just to grades, but to building the fundamental knowledge and study habits that last a lifetime.</p>
+                        <address class="contact-info p-4 bg-light-bg rounded-xl shadow-inner">
+                            <strong class="text-primary block mb-1">Contact Director:</strong>
+                            Yogesh Toshniwal: <a href="tel:+919374336747" class="text-accent hover:underline font-bold">**+91 9374336747**</a>
+                        </address>
+                    </div>
+                    <div class="mission-box p-8 bg-primary text-white rounded-2xl shadow-xl">
+                        <h5 class="text-2xl font-semibold mb-4 text-secondary border-b border-secondary pb-2">Our Mission Statement</h5>
+                        <p class="text-lg italic">"To empower every student with the **conceptual clarity, strategic preparation, and confidence** required to excel in their academic and professional examinations."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS SECTION -->
+        <section id="programs" class="py-16 sm:py-24 bg-light-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-primary mb-12"><i class="fas fa-book-open text-accent mr-3"></i> Our Targeted Programs</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-bold text-primary mb-4">Professional & Competitive Exam Prep</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> **CA Foundation & Intermediate** (Focused Modules)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> **CMF** (Capital Market Foundation)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Specialized Commerce & Finance Entry Exams</li>
+                        </ul>
+                        <a href="#contact" class="card-cta mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Explore CA Coaching <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-bold text-primary mb-4">School Academic Support (Classes 4-10)</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> **Maths & Science** (Deep Conceptual Clarity)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> **Commerce Subjects** (Accounts, Economics, B.S.)</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Advanced History & Business Case Studies</li>
+                        </ul>
+                        <a href="#contact" class="card-cta mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">View School Programs <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    <div class="program-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-secondary hover:shadow-2xl transition-shadow duration-300">
+                        <h4 class="text-2xl font-bold text-primary mb-4">Strategy & Mentorship Courses</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Intensive Crash Courses & Test Series</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> Advanced Content For Deep Insights</li>
+                            <li><i class="fas fa-check-circle text-green-500 mr-2"></i> **Roobaru** - Personal Mentorship</li>
+                        </ul>
+                        <a href="#contact" class="card-cta mt-4 inline-block text-accent hover:text-primary font-semibold transition-colors">Get Mentorship Details <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION (Methodology) -->
+        <section id="features" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-center text-primary mb-12"><i class="fas fa-bullseye text-accent mr-3"></i> Our Proven Methodology</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <div class="feature-item text-center p-6 bg-light-bg rounded-xl shadow-md">
+                        <i class="fas fa-chalkboard-teacher text-5xl text-secondary mb-3"></i>
+                        <h4 class="text-xl font-semibold mb-2 text-primary">Experienced Mentors</h4>
+                        <p class="text-gray-600">Guidance from practicing professionals and experienced educators.</p>
+                    </div>
+                    <div class="feature-item text-center p-6 bg-light-bg rounded-xl shadow-md">
+                        <i class="fas fa-users-class text-5xl text-secondary mb-3"></i>
+                        <h4 class="text-xl font-semibold mb-2 text-primary">Small, Focused Batches</h4>
+                        <p class="text-gray-600">Limited seats to ensure high-quality individual attention for every student.</p>
+                    </div>
+                    <div class="feature-item text-center p-6 bg-light-bg rounded-xl shadow-md">
+                        <i class="fas fa-medal text-5xl text-secondary mb-3"></i>
+                        <h4 class="text-xl font-semibold mb-2 text-primary">Consistent High Results</h4>
+                        <p class="text-gray-600">A history of students achieving top scores in regional and national exams.</p>
+                    </div>
+                    <div class="feature-item text-center p-6 bg-light-bg rounded-xl shadow-md">
+                        <i class="fas fa-file-invoice text-5xl text-secondary mb-3"></i>
+                        <h4 class="text-xl font-semibold mb-2 text-primary">Rigorous Test Structure</h4>
+                        <p class="text-gray-600">Scheduled mock tests and detailed performance analysis after every unit.</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Image Gallery -->
+                <div class="bg-gray-200 h-64 md:h-96 rounded-xl flex items-center justify-center text-gray-500 italic text-lg shadow-inner">
+                     - Replace this with your image slideshow logic in js/javascript.js
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION (FORM) -->
+        <section id="contact" class="py-16 sm:py-24 bg-primary text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-2xl">
+                <h2 class="text-4xl font-bold mb-4 text-secondary">Ready to Begin? Inquire Today!</h2>
+                <p class="text-lg mb-8 opacity-90">Send us a message to book your free consultation and discuss your academic goals.</p>
+                
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form space-y-6">
+                    <input type="hidden" name="access_key" value="424831a3-fe95-4067-ae88-e96b7d994373">
+                    
+                    <input type="text" name="Name" placeholder="Enter Your Name" required
+                        class="w-full p-3 rounded-lg bg-white text-gray-800 focus:ring-accent focus:border-accent border-gray-300 transition-colors">
+                    
+                    <input type="email" name="email" placeholder="Enter Your Email" required
+                        class="w-full p-3 rounded-lg bg-white text-gray-800 focus:ring-accent focus:border-accent border-gray-300 transition-colors">
+                    
+                    <textarea name="Message" placeholder="Tell us about your academic goal (e.g., CA Coaching, Class 10 Maths Help)" rows="4" required
+                        class="w-full p-3 rounded-lg bg-white text-gray-800 focus:ring-accent focus:border-accent border-gray-300 transition-colors"></textarea>
+
+                    <button type="submit"
+                        class="w-full sm:w-auto px-8 py-3 text-lg font-bold rounded-full bg-secondary text-primary shadow-xl hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-105">
+                        Submit Inquiry <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
+            <p>&copy; <span id="current-year">2024</span> **StudyBox Academy** | All Rights Reserved.</p>
+            <div class="footer-links mt-4 sm:mt-0 space-x-6 text-sm">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT: Mobile Menu Logic and Dynamic Year -->
+    <script>
+        // Dynamic Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.getElementById('mobile-menu-toggle');
+            const menuDropdown = document.getElementById('mobile-menu-dropdown');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (toggleButton && menuDropdown && menuIcon) {
+                toggleButton.addEventListener('click', function () {
+                    // Toggles the Tailwind 'hidden' class on the dropdown container
+                    menuDropdown.classList.toggle('hidden');
+
+                    // Icon toggle (bars <-> x)
+                    if (!menuDropdown.classList.contains('hidden')) {
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-times');
+                    } else {
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when a link is clicked
+                menuDropdown.querySelectorAll('a').forEach(item => {
+                    item.addEventListener('click', () => {
+                        menuDropdown.classList.add('hidden');
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    });
+                });
+            }
+        });
+        
+        // Placeholder for external script functions (like image slideshow)
+        // Note: We are not running the js/javascript.js file as it's external,
+        // but you should include its logic here if you want it to work in this single file.
+        // For demonstration purposes, we assume its content is included if needed.
+    </script>
+</body>
+
+</html>
